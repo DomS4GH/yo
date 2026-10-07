@@ -733,19 +733,23 @@ in the following lines"
   (add-hook 'yaml-ts-mode-hook #'outline-indent-minor-mode))
 
 
-(use-package kubed
-  :ensure t
-  :init (let ((files (directory-files "~/.kube" t "\\.yaml$"))
-              (result ""))
-          (dolist (file files)
-            (setq result (concat file ":" result))
-            (message "Found file: %s" file))
-          (setenv "KUBECONFIG" result))
-  :bind (("M-k" . kubed-prefix-map))
-  :config
-  ;; Optional: Automatically refresh resource buffers
-  (add-hook 'kubed-mode-hook #'kubed-auto-refresh-mode))
+;; (use-package kubed
+;;   :ensure t
+;;   :init (let ((files (directory-files "~/.kube" t "\\.yaml$"))
+;;               (result ""))
+;;           (dolist (file files)
+;;             (setq result (concat file ":" result))
+;;             (message "Found file: %s" file))
+;;           (setenv "KUBECONFIG" result))
+;;   :bind (("M-k" . kubed-prefix-map))
+;;   :config
+;;   ;; Optional: Automatically refresh resource buffers
+;;   (add-hook 'kubed-mode-hook #'kubed-auto-refresh-mode))
 
+;; (use-package kele
+;;   :config
+;;   (kele-mode 1)
+;;   (bind-key (kbd "M-k-k") kele-command-map kele-mode-map))
 
 (use-package yaml-mode
   :commands yaml-mode
